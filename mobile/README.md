@@ -9,27 +9,26 @@ Boa sorte e obrigado por participar!
 Você deverá criar um aplicativo chamado "Agenda Petland", para que o cliente consiga fazer o agendamento do banho e tosa do seu pet. Criamos um mockup que deve ser seguido integralmente (https://www.figma.com/file/ixu0sBt4PVArMxJHSc4zxY/CHALLENGE-MOBILE?node-id=0%3A1).
 
 ## Sobre o aplicativo
-O aplicativo possui 4 telas: listagem de pets, listagem de serviços de acordo com o pet selecionado, listagem de horários disponíveis de acordo com XXXX e finalizar agendamento.
+O aplicativo possui 4 telas: listagem de pets, listagem de serviços de acordo com o pet selecionado, listagem de horários disponíveis de acordo com a data escolhida e finalizar agendamento.
 
-- **Listagem de Pet**: seguir mockup do figma
+- **Listagem de Pet**: seguir mockup do figma <br>
 GET - https://api-homolog.geracaopet.com.br/api/challenges/mobile/pets/list <br>
 Retorna um array de pets, com petId, petName e firstLetter. 
 Ações esperadas: selecionar um pet, clicar em continuar e avançar para o próximo passo de selecionar o serviço de acordo com o pet escolhido.
 
 
-- **Listagem de serviços**: seguir mockup figma
+- **Listagem de serviços**: seguir mockup figma <br>
 GET - https://api-homolog.geracaopet.com.br/api/challenges/mobile/services?petId={petId} <br>
 Retorna um objeto com 2 arrays: mainServices e additionalServices.
 Ações esperadas: o usuário pode escolher apenas 1 main service e quantos additional services quiser. Depois de selecionado o serviço, clica em avançar e vai para o próximo passo.
 
 
-- **Listagem de horários disponíveis**: seguir mockup figma
+- **Listagem de horários disponíveis**: seguir mockup figma <br>
 GET - https://api-homolog.geracaopet.com.br/api/challenges/mobile/calendar?date={dia-selecionado}&servicesId={serviceId} <br>
-
-Retorna um array de horários disponíveis de acordo com a data selecionada no calendário.
+Retorna um array de horários disponíveis de acordo com a data preenchida no input
 Ações esperadas: quando um usuário selecionar uma data no calendário, chama o serviço passando a data selecionada no formato (aaaa-mm-dd), e uma lista de serviços selecionados no passo anterior, todos separados por virgula ex(123123,123123,124234). 
-
-- **Criar agendamento**: seguir mockup figma
+ 
+- **Criar agendamento**: seguir mockup figma <br>
 POST - https://api-homolog.geracaopet.com.br/api/challenges/mobile/pre-appointment <br>
 Ações esperadas: quando cliar no botão finalizar agendamento, enviar um post e no body colocar petId, servicesId, date (String) e startsAt (string). Date e startsAt é o que foi selecionado no calendário e horários disponíveis
 
